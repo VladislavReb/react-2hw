@@ -1,25 +1,50 @@
-import logo from './logo.svg';
+import React, {Component, ReactNode} from 'react';
+import MakeNewTask from './components/MakeNewTask';
+import RenderList from './components/RenderList';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+    constructor() {
+        super();
+    }
+
+    state = {
+        toDoList: [
+            {
+                title: 'Smth very important',
+                id: 1,
+                done: false
+            },
+            {
+                title: 'Another very important thing',
+                id: 2,
+                done: false
+            },
+            {
+                title: 'Ordinary thing',
+                id: 3,
+                done: true
+            }
+        ],
+    };
+
+    pushToList = (task) => {
+        this.setState({
+            toDoList: [...this.state.toDoList, task]
+        });
+    };
+
+    render(): ReactNode {
+        return (
+            <div className='container'>
+                <h3>My tasks:</h3>
+                {this.state.toDoList.map((item, index) => {
+                    return <RenderList key={index} item={item}/>;
+                })}
+                <MakeNewTask addState={this.pushToList}/>
+            </div>
+        );
+    }
 }
 
 export default App;

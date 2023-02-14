@@ -1,0 +1,33 @@
+.form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    min-height: 105px;
+    min-width: 580px;
+    border-radius: 10px;
+    background-color: chocolate;
+}
+
+.label {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.form_input {
+    min-height: 25px;
+    margin-left: 25px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.form_button {
+    min-height: 29px;
+    min-width: 85px;
+    margin-top: 5px;
+    background-color: rgba(3, 210, 43, 0.97);
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: bold;
+}
